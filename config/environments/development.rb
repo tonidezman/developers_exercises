@@ -1,3 +1,5 @@
+ENV['POSTGRES_DB'] = 'developers_exercises_development'
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
