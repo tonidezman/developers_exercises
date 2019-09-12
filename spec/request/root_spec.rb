@@ -7,6 +7,10 @@ RSpec.describe PagesController, type: :request do
       get '/'
       expect(response).to have_http_status(:success)
     end
+
+    it "checks if postgres connection is OK" do
+      expect(ActiveRecord::Base.connection.tables).to eq([])
+    end
   end
 
 end
