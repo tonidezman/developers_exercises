@@ -1,12 +1,11 @@
-language: python
-python:
-  - "3.6"
+sudo: required
 
+language: ruby
+rvm:
+  - 2.6.4
 services:
-  - postgres
   - docker
 
-before_script: pip install docker-compose
-
-script:
-  - docker-compose run web RAILS_ENV=test rails db:reset
+before_install:
+  - docker-compose build
+  - docker-compose up -d && docker ps
