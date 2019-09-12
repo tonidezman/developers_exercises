@@ -8,4 +8,4 @@ services:
 before_script: pip install docker-compose
 
 script:
-  - docker-compose run web rspec
+  - docker-compose run web bin/rails db:setup RAILS_ENV=test && docker-compose run web rspec
